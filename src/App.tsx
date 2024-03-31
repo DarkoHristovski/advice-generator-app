@@ -1,14 +1,24 @@
-import { useState } from 'react'
+import Advice from './components/Advice.tsx'
+import { useState,useEffect } from 'react'
+
+import {fetchAdvice} from './services/fetchServices.tsx'
 
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [advice, setAdvice] = useState<[]>([])
 
+  
+
+useEffect(()=>{
+  fetchAdvice().then(result=>setAdvice([result.slip]))
+},[])
+
+console.log(advice)
   return (
-    <>
-   <h1>Ova e test</h1>
-    </>
+    <main>
+   <Advice advice = {advice}/>
+    </main>
   )
 }
 
