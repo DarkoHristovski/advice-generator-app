@@ -1,25 +1,35 @@
-import Advice from './components/Advice.tsx'
-import { useState,useEffect } from 'react'
+import Advice from './components/Advice.tsx';
+import { useState,useEffect } from 'react';
+import {fetchAdvice} from './services/fetchServices.tsx';
+import './App.css';
 
-import {fetchAdvice} from './services/fetchServices.tsx'
+type AdviceObject = {
+  id: number;
+  advice: string;
+}
 
-import './App.css'
+type AdviceSlip= {
+  slip: AdviceObject;
+}
 
 function App() {
-  const [advice, setAdvice] = useState<[]>([])
+  const [advice, setAdvice] = useState<AdviceObject>()
 
-  
+  const addAdvice = () => {
+    return fetchAdvice().then((result: AdviceSlip)=> {
+      setAdvice(result.slip);
+    })
+   }
 
-useEffect(()=>{
-  fetchAdvice().then(result=>setAdvice([result.slip]))
-},[])
+  useEffect(()=> {
+    addAdvice();
+  }, [])
 
-console.log(advice)
   return (
     <main>
-   <Advice advice = {advice}/>
+      <Advice addAdvice={addAdvice} adviceObject={advice}/>
     </main>
   )
 }
 
-export default App
+export default App;

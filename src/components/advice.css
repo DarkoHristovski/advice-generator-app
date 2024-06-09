@@ -1,0 +1,66 @@
+.card{
+    background-color: var(--grayish-blue);
+    border-radius: 10px;
+    padding: 50px 20px;
+    position: relative;
+}
+
+.svg-patern{
+    position: relative;
+    margin-top: 30px;
+}
+
+.svg-patern::before,
+.svg-patern::after{
+   content:'';
+   position: absolute;
+   height: 1px;
+   background-color:var(--primary-cian);
+   top: 6px;
+}
+
+.svg-patern::before{
+    left: 0px;
+    right: 55%;
+   
+}
+
+.svg-patern::after{
+  right: 0px;
+  left: 55%;
+}
+
+.icon-dice{
+    position: absolute;
+    left: calc(50% - 29px);
+    bottom: 25px;
+    transform: translateX(-50%);
+    cursor: pointer;
+  }
+
+  .icon-dice svg{
+    position: absolute;
+    z-index: 2;
+    left: 17px;
+    top: 18px;
+
+  }
+  
+  .icon-dice::after{
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 60px;
+    width: 60px;
+    display: block;
+    background-color:var(--primary-green);
+    border-radius: 100%;
+  }
+
+    
+  .icon-dice:hover::after{
+
+    background-color:var(--dark-grayish-blue);
+
+  }
