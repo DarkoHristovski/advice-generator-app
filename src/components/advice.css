@@ -1,66 +1,65 @@
-.card{
-    background-color: var(--grayish-blue);
-    border-radius: 10px;
-    padding: 50px 20px;
-    position: relative;
+.card {
+  background-color: var(--dark-grayish-blue);
+  border-radius: 10px;
+  padding: 50px 20px;
+  position: relative;
 }
 
-.svg-patern{
-    position: relative;
-    margin-top: 30px;
+.svg-patern {
+  position: relative;
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.svg-patern::before,
-.svg-patern::after{
-   content:'';
-   position: absolute;
-   height: 1px;
-   background-color:var(--primary-cian);
-   top: 6px;
+.icon-dice {
+  position: absolute;
+  left: calc(50% - 29px);
+  bottom: 25px;
+  transform: translateX(-50%);
+  cursor: pointer;
 }
 
-.svg-patern::before{
-    left: 0px;
-    right: 55%;
-   
+.icon-dice svg {
+  position: absolute;
+  z-index: 2;
+  left: 17px;
+  top: 18px;
 }
 
-.svg-patern::after{
-  right: 0px;
-  left: 55%;
+.icon-dice::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 60px;
+  width: 60px;
+  display: block;
+  background-color: var(--primary-green);
+  border-radius: 100%;
 }
 
-.icon-dice{
-    position: absolute;
-    left: calc(50% - 29px);
-    bottom: 25px;
-    transform: translateX(-50%);
-    cursor: pointer;
+.icon-dice:hover::after {
+  background-color:var(--primary-cian);
+}
+
+.display-mobile {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  .display-desktop {
+    display: none;
   }
-
-  .icon-dice svg{
-    position: absolute;
-    z-index: 2;
-    left: 17px;
-    top: 18px;
-
-  }
-  
-  .icon-dice::after{
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0;
-    height: 60px;
-    width: 60px;
+  .display-mobile {
     display: block;
-    background-color:var(--primary-green);
-    border-radius: 100%;
   }
 
-    
-  .icon-dice:hover::after{
-
-    background-color:var(--dark-grayish-blue);
-
+  .card {
+    width: 90%;
   }
+  h2 {
+    font-size: 1.2rem;
+  }
+}
